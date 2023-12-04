@@ -1,0 +1,34 @@
+@model NhanVien
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<form asp-controller="Nhanvien" asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="Ten">Tên: </label>
+        <input asp-for="Ten" value="@Model.Ten">
+    </div>
+    <div class="form-group">
+        <label asp-for="Tuoi">Tuổi: </label>
+        <input asp-for="Tuoi" value="@Model.Tuoi">
+    </div>
+    <div class="form-group">
+        <label asp-for="Role">Role: </label>
+        <input asp-for="Role" value="@Model.Role">
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email: </label>
+        <input asp-for="Email" value="@Model.Email">
+    </div>
+    <div class="form-group">
+        <label asp-for="Luong">Lương: </label>
+        <input asp-for="Luong" value="@Model.Luong">
+    </div>
+    <div class="form-group">
+            <label asp-for="TrangThai">Trạng Thái: </label>
+            <input asp-for="TrangThai">
+        </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

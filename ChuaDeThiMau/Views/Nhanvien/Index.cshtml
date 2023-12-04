@@ -1,0 +1,45 @@
+@model List<NhanVien>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<a class="btn btn-success" asp-controller="Nhanvien" asp-action="Create">Create New</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Tuổi</th>
+        <th scope="col">Role</th>
+        <th scope="col">Email</th>
+        <th scope="col">Lương</th>
+        <th scope="col">Trạng Thái</th>
+        <th scope="col">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var nhanvien in @Model)
+    {
+        <tr>
+            <th scope="row">@nhanvien.Id</th>
+            <td>@nhanvien.Ten</td>
+            <td>@nhanvien.Tuoi</td>
+            <td>@nhanvien.Role</td>
+            <td>@nhanvien.Email</td>
+            <td>@nhanvien.Luong</td>
+            <td>@nhanvien.TrangThai</td>
+            <td>
+                <a type="button" class="btn btn-primary" asp-controller="Nhanvien" asp-action="Edit" asp-route-id="@nhanvien.Id">Edit</a>
+                <form asp-controller="Nhanvien" asp-action="Delete" asp-route-id="@nhanvien.Id" method="post">
+                    <button type="submit" class="btn btn-danger" >Delete</button>
+                </form>
+                <form asp-controller="Nhanvien" asp-action="Rollback" asp-route-id="@nhanvien.Id" method="post">
+                    <button type="submit" class="btn btn-warning" >Rollback</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
